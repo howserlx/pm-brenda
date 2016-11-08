@@ -1,0 +1,21 @@
+### logging
+logging.level.org:
+  postgresql.core.v3.ConnectionFactoryImpl: DEBUG
+  hibernate.SQL: INFO
+
+org.springframework: DEBUG
+
+### Database
+spring.datasource:
+  url: jdbc:postgresql://${dbhost:localhost}:${dbport:5432}/${dbname:pm-brenda}
+  username: ${dbuser:postgres}
+  password: ${dbpass:root}
+
+spring.jpa.show-sql: true
+
+### Social
+#spring.social.google.client-id=887903447899-lvcr1au0eup0rs23h83lf0hh3gibglr9.apps.googleusercontent.com
+#spring.social.google.client-secret=rHnQu9Z9PhuHfTURCSIsPNja
+
+server.port: 8080
+application.site: http://localhost:${server.port}/
