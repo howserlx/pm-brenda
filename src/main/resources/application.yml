@@ -12,7 +12,6 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate.ddl-auto: none
-    database: POSTGRESQL
     show-sql: false
   messages.basename: i18n/messages
 
