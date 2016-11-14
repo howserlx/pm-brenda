@@ -1,3 +1,25 @@
+--Userconnection
+CREATE TABLE userconnection
+(
+  userid         CHARACTER VARYING(255) NOT NULL,
+  providerid     CHARACTER VARYING(255) NOT NULL,
+  provideruserid CHARACTER VARYING(255) NOT NULL,
+  rank           INTEGER                NOT NULL,
+  displayname    CHARACTER VARYING(255),
+  profileurl     CHARACTER VARYING(512),
+  imageurl       CHARACTER VARYING(512),
+  accesstoken    CHARACTER VARYING(512) NOT NULL,
+  secret         CHARACTER VARYING(512),
+  refreshtoken   CHARACTER VARYING(512),
+  expiretime     BIGINT,
+  CONSTRAINT userconnection_pkey PRIMARY KEY (userid, providerid, provideruserid)
+);
+
+CREATE UNIQUE INDEX userconnectionrank
+  ON userconnection
+  USING BTREE
+  (userid COLLATE pg_catalog."default", providerid COLLATE pg_catalog."default", rank);
+
 --User
 CREATE TABLE public.user
 (
