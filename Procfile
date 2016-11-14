@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT $JAVA_OPTS target/questions-0.0.1-SNAPSHOT.war
