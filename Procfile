@@ -1,1 +1,1 @@
-java -Dserver.port=$PORT -Denv=prod $JAVA_OPTS -jar target*.jar
+web: java -Dserver.port=$PORT -Denv=prod $JAVA_OPTS target/questions-0.0.1-SNAPSHOT.jar
