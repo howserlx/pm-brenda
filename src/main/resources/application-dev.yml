@@ -13,11 +13,6 @@ spring.datasource:
 
 spring.jpa.show-sql: true
 
-### Social
-spring.social.google:
-  client-id: 1063663814246-4d7mn7t3tik01sgqe3drjupc1l0h1hbl.apps.googleusercontent.com
-  client-secret: CcY-jpVw0-3QBBvH0FKhuW8o
-
 server.port: 8080
 application.site: http://localhost:${server.port}/
 
