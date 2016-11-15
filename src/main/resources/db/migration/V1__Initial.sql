@@ -46,7 +46,7 @@ CACHE 1;
 CREATE TABLE public.patient
 (
   id                 BIGINT                 NOT NULL,
-  patient_names      CHARACTER VARYING(100) NOT NULL,
+  names              CHARACTER VARYING(100) NOT NULL,
   last_name1         CHARACTER VARYING(100) NOT NULL,
   last_name2         CHARACTER VARYING(100),
   birthday           DATE                   NOT NULL,

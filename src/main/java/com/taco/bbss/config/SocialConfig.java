@@ -18,7 +18,6 @@ import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
 import org.springframework.social.security.AuthenticationNameUserIdSource;
 
-import com.taco.bbss.repository.UserRepository;
 import com.taco.bbss.service.impl.auth.AccountConnectionSignUpService;
 
 @Configuration
@@ -29,9 +28,6 @@ public class SocialConfig implements SocialConfigurer {
 
     @Autowired
     private DataSource dataSource;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     private AccountConnectionSignUpService accountConnectionSignUpService;
