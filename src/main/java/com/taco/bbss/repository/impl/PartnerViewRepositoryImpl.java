@@ -12,35 +12,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.taco.bbss.domain.auth.User;
-import com.taco.bbss.dto.filter.PatientFilter;
-import com.taco.bbss.dto.reduced.PatientListInfo;
-import com.taco.bbss.repository.PatientViewRepository;
+import com.taco.bbss.dto.filter.PartnerFilter;
+import com.taco.bbss.dto.reduced.PartnerListInfo;
+import com.taco.bbss.repository.PartnerViewRepository;
 import com.taco.bbss.service.QueryHelper;
 
 @Repository
-public class PatientViewRepositoryImpl implements PatientViewRepository {
+public class PartnerViewRepositoryImpl implements PartnerViewRepository {
 
-    private static Logger log = LoggerFactory.getLogger(PatientViewRepositoryImpl.class);
+    private static Logger log = LoggerFactory.getLogger(PartnerViewRepositoryImpl.class);
 
     private EntityManager entityManager;
 
     private QueryHelper queryHelper;
 
-
-    @SuppressWarnings("unchecked")
-    public List<PatientListInfo> getAll(PatientFilter patientFilter, User user) {
+    @Override
+    public List<PartnerListInfo> getAll(PartnerFilter partnerFilter, User user) {
         StringBuilder queryString = new StringBuilder();
         Map<String, Object> dynamicParams = new HashMap<>();
 
-        queryString.append("SELECT new com.taco.bbss.dto.reduced.PatientListInfo(p) FROM com.taco.bbss.domain.PatientByUser pu JOIN pu.patient p " +
+        queryString.append("SELECT new com.taco.bbss.dto.reduced.PartnerListInfo(p) FROM com.taco.bbss.domain.Partner p " +
                 " WHERE pu.user = :user ");
 
-        queryHelper.addLikeCondition(patientFilter.getName(), "names", queryString, dynamicParams);
-        queryHelper.addLikeCondition(patientFilter.getLastName1(), "lastName1", queryString, dynamicParams);
-        queryHelper.addLikeCondition(patientFilter.getLastName2(), "lastName2", queryString, dynamicParams);
-        queryHelper.addBetweenDateCondition(patientFilter.getBirthDateMin(), patientFilter.getBirthDateMax(), "birthdate", queryString, dynamicParams, "ddMMyyyy");
+        queryHelper.addLikeCondition(partnerFilter.getFullName(), "fullName", queryString, dynamicParams);
 
-        queryString.append(" ORDER BY p.names ASC");
+        queryString.append(" ORDER BY p.fullName ASC");
 
         javax.persistence.Query query = entityManager.createQuery(queryString.toString());
 
