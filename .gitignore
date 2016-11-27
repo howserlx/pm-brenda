@@ -1,0 +1,7 @@
+node_modules
+src/main/resources/public
+.idea
+.tmp
+.sass-cache
+bower_components
+target
