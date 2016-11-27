@@ -15,5 +15,14 @@
     "angular-mocks": "^1.5.8"
   },
   "appPath": "src/main/front-end",
-  "moduleName": "angularApp"
+  "moduleName": "angularApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
 }
