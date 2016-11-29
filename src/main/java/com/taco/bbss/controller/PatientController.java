@@ -44,7 +44,7 @@ public class PatientController {
         Patient patient = patientService.findById(id, userDetails.getUser());
 
         if (patient == null) {
-            throw new PatientNotFoundException();
+            throw new PatientNotFoundException(id);
         }
 
         return patient;

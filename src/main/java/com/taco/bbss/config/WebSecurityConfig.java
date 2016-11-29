@@ -20,8 +20,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
-                .antMatchers("/css/**")
-                .antMatchers("/img/**")
+                .antMatchers("/fonts/**")
+                .antMatchers("/images/**")
+                .antMatchers("/scripts/**")
+                .antMatchers("/styles/**")
                 .antMatchers("/favicon.ico");
     }
 
@@ -45,6 +47,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .apply(springSocialConfigurer)
                 .and().csrf().disable();
-        //.and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 }

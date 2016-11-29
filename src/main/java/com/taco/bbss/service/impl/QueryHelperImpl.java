@@ -9,11 +9,11 @@ import javax.persistence.Query;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.taco.bbss.service.QueryHelper;
 
-@Service
+@Component
 public class QueryHelperImpl implements QueryHelper {
 
     private static Logger log = LoggerFactory.getLogger(QueryHelperImpl.class);
@@ -33,7 +33,7 @@ public class QueryHelperImpl implements QueryHelper {
                 Date minValue = sdf.parse(rangeDateMin);
                 Date maxValue = sdf.parse(rangeDateMax);
                 String dynamicFieldMin = "__field" + dynamicParams.size();
-                String dynamicFieldMax = "__field" + dynamicParams.size() + 1;
+                String dynamicFieldMax = "__field" + (dynamicParams.size() + 1);
 
                 queryString.append(" AND ");
                 queryString.append(fieldName);
