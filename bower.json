@@ -1,7 +1,0 @@
-{
-  "name": "pm-brenda",
-  "version": "0.0.1",
-  "dependencies": {
-    "angular": "angularjs#^1.5.8"
-  }
-}
