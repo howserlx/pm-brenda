@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -Denv=prod $JAVA_OPTS -jar target/*.jar
+web: java -Dserver.port=$PORT -Denv=prod $JAVA_OPTS -jar back-end/target/*.jar
